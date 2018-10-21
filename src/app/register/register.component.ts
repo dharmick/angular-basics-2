@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterForm } from '../register-form';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +9,12 @@ import { RegisterForm } from '../register-form';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private firebase: FirebaseService) { }
 
   ngOnInit() {
   }
 
-  model = new RegisterForm();
+  model: RegisterForm = new RegisterForm();
 
   departments = ['Computer', 'IT', 'Extc'];
 
@@ -22,6 +23,12 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   onSubmit(){
     this.submitted = true;
+    this.firebase.createStudent(this.model);
+  }
+
+  addStudent(){
+    this.submitted = false;
+    this.model = new RegisterForm();
   }
 
   // TODO: Remove this when we're done

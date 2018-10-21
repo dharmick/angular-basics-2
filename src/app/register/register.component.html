@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>Registration Form</h1>
-    <form #registerForm="ngForm">
+    <h1 [hidden]="submitted">Registration Form</h1>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
       {{diagnostic}}
       <div class="form-group">
         <label for="first-name">First Name</label>
@@ -59,4 +59,9 @@
       <button type="submit" class="btn btn-success">Submit</button>
 
     </form>
+
+    <div [hidden]="!submitted">
+      <h2>Form Submitted Succesfully</h2>
+      <button class="btn btn-success" (click)="addStudent()">Add new Student</button>
+    </div>
 </div>
