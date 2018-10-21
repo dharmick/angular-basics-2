@@ -33,7 +33,7 @@ const appRoutes:Routes = [
     RegisterComponent,
     LoginComponent,
     PagenotfoundComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

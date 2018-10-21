@@ -1,3 +1,30 @@
-<p>
-  login works!
-</p>
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" [hidden]="submitted">
+      <h1>Login</h1>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="model.email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" required [(ngModel)]="model.password" name="password">
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+
+    <div [hidden]="!submitted">
+      <div [hidden]="!loginSuccess">
+        <h2>Your Profile</h2>
+          <h4 *ngFor="let a of profile_values;let i = index">{{profile_keys[i]}}: {{a}}</h4>
+        <button class="btn btn-success" (click)="logout()">Logout</button>
+      </div>
+      <div [hidden]="loginSuccess">
+        <h2>email or password incorrect</h2>
+        <button class="btn btn-success" (click)="logout()">Back</button>
+      </div>
+
+    </div>
+</div>
