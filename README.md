@@ -1,6 +1,6 @@
-# Task2
+# Using Firebase in Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
 ## Development server
 
